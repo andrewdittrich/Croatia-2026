@@ -6,153 +6,217 @@
 <title>Croatia 2026 — Dittrich Family</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --sea: #1a4a6b;
-    --sea-mid: #2d6a9f;
-    --sea-light: #c8dfee;
-    --sand: #f5ede0;
-    --stone: #d4c5b0;
-    --terra: #b85c38;
-    --terra-light: #f0d4c8;
-    --ink: #1c1a18;
-    --mist: #f8f4ef;
-    --mid: #6b6259;
+    --bg:           #0a0a0f;
+    --bg-elev-1:    #12121a;
+    --bg-elev-2:    #1f1f2e;
+    --border:       rgba(255,255,255,.08);
+    --border-bright: rgba(255,255,255,.14);
+    --text:         #f8fafc;
+    --text-dim:     #9ca3af;
+    --text-faint:   #64748b;
+    --cyan:         #00d4ff;
+    --cyan-deep:    #0891b2;
+    --purple:       #7c3aed;
+    --purple-light: #8b5cf6;
+    --magenta:      #ff00aa;
+    --magenta-deep: #db2777;
+    --green:        #10d49b;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
+  html { scroll-behavior: smooth; }
+
   body {
-    background: var(--mist);
-    color: var(--ink);
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 300;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Geist', ui-sans-serif, system-ui, sans-serif;
+    font-weight: 400;
     line-height: 1.6;
     min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
   }
+
+  ::selection { background: rgba(0,212,255,.3); color: var(--text); }
 
   /* ── HERO ── */
   .hero {
-    background: var(--sea);
-    color: #fff;
-    padding: 80px 40px 60px;
     position: relative;
+    padding: 120px 40px 100px;
     overflow: hidden;
+    border-bottom: 1px solid var(--border);
+    background:
+      radial-gradient(ellipse 80% 60% at 80% 0%, rgba(124,58,237,.18) 0%, transparent 60%),
+      radial-gradient(ellipse 70% 50% at 10% 100%, rgba(0,212,255,.12) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 40% at 100% 100%, rgba(255,0,170,.08) 0%, transparent 60%);
   }
-  .hero::before {
+  .hero::after {
     content: '';
     position: absolute;
     inset: 0;
-    background:
-      radial-gradient(ellipse 120% 80% at 110% 120%, rgba(45,106,159,.5) 0%, transparent 60%),
-      radial-gradient(ellipse 60% 60% at -10% -10%, rgba(184,92,56,.15) 0%, transparent 50%);
+    background-image:
+      linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black, transparent 80%);
+    pointer-events: none;
   }
   .hero-inner {
-    max-width: 860px;
+    max-width: 920px;
     margin: 0 auto;
     position: relative;
+    z-index: 1;
   }
   .hero-eyebrow {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 11px;
+    font-family: 'Geist Mono', ui-monospace, monospace;
+    font-size: 12px;
     font-weight: 500;
-    letter-spacing: .2em;
+    letter-spacing: .14em;
     text-transform: uppercase;
-    color: var(--sea-light);
-    margin-bottom: 20px;
+    color: var(--cyan);
+    margin-bottom: 28px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 14px;
+    background: rgba(0,212,255,.08);
+    border: 1px solid rgba(0,212,255,.25);
+    border-radius: 99px;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--cyan);
+    box-shadow: 0 0 12px var(--cyan);
   }
   .hero h1 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(52px, 8vw, 96px);
-    font-weight: 300;
+    font-family: 'Geist', sans-serif;
+    font-size: clamp(56px, 9vw, 112px);
+    font-weight: 600;
     line-height: .95;
-    letter-spacing: -.02em;
+    letter-spacing: -.035em;
     margin-bottom: 24px;
   }
-  .hero h1 em {
-    font-style: italic;
-    color: var(--sea-light);
+  .hero h1 .gradient {
+    background: linear-gradient(135deg, var(--cyan) 0%, var(--purple-light) 50%, var(--magenta) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+  .hero-sub {
+    font-size: 18px;
+    color: var(--text-dim);
+    max-width: 560px;
+    margin-bottom: 48px;
+    line-height: 1.55;
   }
   .hero-meta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 24px;
-    margin-top: 32px;
-    padding-top: 28px;
-    border-top: 1px solid rgba(255,255,255,.15);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-top: 40px;
   }
   .hero-meta-item {
-    font-size: 13px;
-    color: rgba(255,255,255,.7);
+    padding: 18px 20px;
+    background: rgba(18,18,26,.6);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: border-color .25s ease, transform .25s ease;
   }
-  .hero-meta-item strong {
-    display: block;
+  .hero-meta-item:hover {
+    border-color: rgba(0,212,255,.35);
+    transform: translateY(-2px);
+  }
+  .hero-meta-item .label {
+    font-family: 'Geist Mono', monospace;
+    font-size: 10px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    margin-bottom: 8px;
+  }
+  .hero-meta-item .value {
     font-size: 15px;
-    font-weight: 400;
-    color: #fff;
-    margin-bottom: 2px;
+    font-weight: 500;
+    color: var(--text);
+    line-height: 1.35;
   }
 
   /* ── LAYOUT ── */
   .page {
-    max-width: 860px;
+    max-width: 920px;
     margin: 0 auto;
-    padding: 60px 40px;
+    padding: 80px 40px 60px;
   }
 
   /* ── SECTION HEADERS ── */
   .section-label {
-    font-size: 10px;
+    font-family: 'Geist Mono', monospace;
+    font-size: 11px;
     font-weight: 500;
-    letter-spacing: .25em;
+    letter-spacing: .2em;
     text-transform: uppercase;
-    color: var(--terra);
-    margin-bottom: 40px;
+    color: var(--text-faint);
+    margin-bottom: 48px;
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 14px;
+  }
+  .section-label::before {
+    content: '';
+    width: 28px;
+    height: 1px;
+    background: linear-gradient(90deg, var(--cyan), transparent);
   }
   .section-label::after {
     content: '';
     flex: 1;
     height: 1px;
-    background: var(--stone);
+    background: var(--border);
   }
 
   /* ── TIMELINE ── */
-  .timeline { display: flex; flex-direction: column; gap: 0; }
+  .timeline { display: flex; flex-direction: column; }
 
   .tl-item {
     display: grid;
-    grid-template-columns: 120px 1px 1fr;
-    gap: 0 24px;
+    grid-template-columns: 110px 1px 1fr;
+    gap: 0 32px;
     position: relative;
   }
-  .tl-item:not(:last-child) .tl-line { background: var(--stone); }
 
   .tl-date {
-    padding: 0 0 48px;
+    padding: 0 0 56px;
     text-align: right;
   }
   .tl-date-day {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 32px;
-    font-weight: 300;
-    color: var(--sea);
+    font-family: 'Geist', sans-serif;
+    font-size: 36px;
+    font-weight: 600;
+    color: var(--text);
     line-height: 1;
+    letter-spacing: -.02em;
   }
   .tl-date-month {
+    font-family: 'Geist Mono', monospace;
     font-size: 11px;
     font-weight: 500;
-    letter-spacing: .12em;
+    letter-spacing: .14em;
     text-transform: uppercase;
-    color: var(--mid);
-    margin-top: 2px;
+    color: var(--cyan);
+    margin-top: 6px;
   }
   .tl-date-range {
-    font-size: 11px;
-    color: var(--mid);
+    font-size: 12px;
+    color: var(--text-faint);
     margin-top: 4px;
   }
 
@@ -162,132 +226,205 @@
     align-items: center;
   }
   .tl-dot {
-    width: 10px;
-    height: 10px;
+    width: 12px;
+    height: 12px;
     border-radius: 50%;
     flex-shrink: 0;
-    margin-top: 6px;
-    border: 2px solid var(--mist);
+    margin-top: 10px;
+    position: relative;
+    z-index: 1;
   }
-  .tl-line { flex: 1; width: 1px; }
+  .tl-line {
+    flex: 1;
+    width: 1px;
+    background: linear-gradient(to bottom, var(--border-bright), var(--border));
+  }
+  .tl-item:last-child .tl-line { background: transparent; }
 
-  .tl-dot.travel  { background: var(--sea-mid); }
-  .tl-dot.arrive  { background: #2a9d6f; }
-  .tl-dot.villa   { background: #7a6fb0; }
-  .tl-dot.explore { background: var(--terra); }
-  .tl-dot.island  { background: #2a9d6f; }
-  .tl-dot.depart  { background: var(--terra); }
+  .tl-dot.travel  { background: var(--cyan);    box-shadow: 0 0 0 4px rgba(0,212,255,.12), 0 0 16px rgba(0,212,255,.6); }
+  .tl-dot.arrive  { background: var(--green);   box-shadow: 0 0 0 4px rgba(16,212,155,.12), 0 0 16px rgba(16,212,155,.6); }
+  .tl-dot.villa   { background: var(--purple);  box-shadow: 0 0 0 4px rgba(124,58,237,.15), 0 0 16px rgba(124,58,237,.6); }
+  .tl-dot.explore { background: var(--magenta); box-shadow: 0 0 0 4px rgba(255,0,170,.12), 0 0 16px rgba(255,0,170,.6); }
+  .tl-dot.island  { background: var(--cyan);    box-shadow: 0 0 0 4px rgba(0,212,255,.12), 0 0 16px rgba(0,212,255,.6); }
+  .tl-dot.depart  { background: var(--magenta); box-shadow: 0 0 0 4px rgba(255,0,170,.12), 0 0 16px rgba(255,0,170,.6); }
 
-  .tl-content { padding: 0 0 48px; }
+  .tl-content { padding: 0 0 56px; }
   .tl-heading {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 26px;
-    font-weight: 400;
+    font-family: 'Geist', sans-serif;
+    font-size: 30px;
+    font-weight: 600;
     line-height: 1.1;
-    margin-bottom: 12px;
-    color: var(--ink);
+    letter-spacing: -.02em;
+    margin-bottom: 20px;
+    color: var(--text);
   }
-  .tl-heading em { font-style: italic; color: var(--sea); }
+  .tl-heading .accent {
+    background: linear-gradient(135deg, var(--cyan), var(--purple-light));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+  .tl-heading .accent-magenta {
+    background: linear-gradient(135deg, var(--magenta), var(--purple-light));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
 
   /* ── CARDS ── */
-  .cards { display: flex; flex-direction: column; gap: 8px; }
+  .cards { display: flex; flex-direction: column; gap: 10px; }
 
   .card {
-    background: #fff;
-    border: 1px solid var(--stone);
-    border-radius: 6px;
-    padding: 14px 16px;
+    background: var(--bg-elev-1);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 18px 20px;
     display: grid;
-    grid-template-columns: 20px 1fr;
-    gap: 12px;
+    grid-template-columns: 24px 1fr;
+    gap: 16px;
     align-items: start;
+    transition: border-color .25s ease, transform .25s ease, box-shadow .25s ease;
+    position: relative;
+    overflow: hidden;
   }
-  .card.accent-villa { border-left: 3px solid #7a6fb0; }
-  .card.accent-flight { border-left: 3px solid var(--sea-mid); }
-  .card.accent-activity { border-left: 3px solid var(--terra); }
-  .card.accent-ferry { border-left: 3px solid #2a9d6f; }
+  .card::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 2px;
+    transition: width .25s ease, box-shadow .25s ease;
+  }
+  .card:hover {
+    border-color: var(--border-bright);
+    transform: translateY(-1px);
+  }
+  .card:hover::before { width: 3px; }
+
+  .card.accent-flight::before    { background: var(--cyan);    box-shadow: 0 0 12px rgba(0,212,255,.5); }
+  .card.accent-villa::before     { background: var(--purple);  box-shadow: 0 0 12px rgba(124,58,237,.5); }
+  .card.accent-activity::before  { background: var(--magenta); box-shadow: 0 0 12px rgba(255,0,170,.5); }
+  .card.accent-ferry::before     { background: var(--green);   box-shadow: 0 0 12px rgba(16,212,155,.5); }
 
   .card-icon {
-    font-size: 16px;
+    font-size: 18px;
     margin-top: 1px;
     text-align: center;
+    filter: grayscale(.15);
   }
   .card-title {
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 500;
-    color: var(--ink);
-    line-height: 1.3;
-    margin-bottom: 3px;
+    color: var(--text);
+    line-height: 1.35;
+    margin-bottom: 4px;
+    letter-spacing: -.01em;
   }
   .card-detail {
-    font-size: 13px;
-    color: var(--mid);
-    line-height: 1.55;
+    font-size: 14px;
+    color: var(--text-dim);
+    line-height: 1.6;
   }
-  .card-detail a { color: var(--sea-mid); text-decoration: none; }
-  .card-detail a:hover { text-decoration: underline; }
+  .card-detail a {
+    color: var(--cyan);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(0,212,255,.3);
+    transition: border-color .2s ease;
+  }
+  .card-detail a:hover { border-color: var(--cyan); }
+  .card-detail strong { color: var(--text); font-weight: 500; }
 
   .flight-row {
     display: flex;
     align-items: center;
-    gap: 8px;
-    margin-top: 6px;
+    gap: 10px;
+    margin-top: 8px;
     flex-wrap: wrap;
   }
   .airport {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 20px;
+    font-family: 'Geist Mono', monospace;
+    font-size: 18px;
     font-weight: 600;
-    color: var(--sea);
-    letter-spacing: .02em;
+    color: var(--text);
+    letter-spacing: .04em;
   }
-  .flight-arrow { color: var(--stone); font-size: 14px; }
-  .flight-time { font-size: 13px; color: var(--mid); }
-  .flight-meta { font-size: 12px; color: var(--mid); margin-top: 4px; }
+  .flight-arrow { color: var(--text-faint); font-size: 14px; }
+  .flight-time {
+    font-family: 'Geist Mono', monospace;
+    font-size: 12px;
+    color: var(--text-dim);
+  }
+  .flight-meta {
+    font-family: 'Geist Mono', monospace;
+    font-size: 11px;
+    color: var(--text-faint);
+    margin-top: 8px;
+    letter-spacing: .01em;
+  }
 
   .tag {
     display: inline-block;
+    font-family: 'Geist Mono', monospace;
     font-size: 10px;
     font-weight: 500;
-    letter-spacing: .08em;
+    letter-spacing: .1em;
     text-transform: uppercase;
-    padding: 2px 8px;
+    padding: 3px 9px;
     border-radius: 99px;
-    margin-left: 6px;
+    margin-left: 8px;
     vertical-align: middle;
+    border: 1px solid;
   }
-  .tag-blue { background: var(--sea-light); color: var(--sea); }
-  .tag-terra { background: var(--terra-light); color: var(--terra); }
-  .tag-green { background: #d4ede6; color: #1a6b4a; }
-  .tag-purple { background: #e8e6f5; color: #4a3f8f; }
-
-  /* ── DIVIDER ── */
-  .divider {
-    border: none;
-    border-top: 1px solid var(--stone);
-    margin: 48px 0;
-  }
+  .tag-cyan    { background: rgba(0,212,255,.1);   color: var(--cyan);    border-color: rgba(0,212,255,.3); }
+  .tag-magenta { background: rgba(255,0,170,.08);  color: #ff66c8;        border-color: rgba(255,0,170,.3); }
+  .tag-green   { background: rgba(16,212,155,.08); color: var(--green);   border-color: rgba(16,212,155,.3); }
+  .tag-purple  { background: rgba(124,58,237,.1);  color: var(--purple-light); border-color: rgba(124,58,237,.3); }
 
   /* ── ACCOMMODATION BLOCK ── */
   .stay-block {
-    background: var(--sand);
-    border-radius: 8px;
+    background: linear-gradient(135deg, rgba(124,58,237,.08), rgba(0,212,255,.04));
+    border: 1px solid var(--border);
+    border-radius: 16px;
     padding: 28px 32px;
-    margin-top: 12px;
+    margin-top: 14px;
+    position: relative;
+    overflow: hidden;
+  }
+  .stay-block::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(124,58,237,.4), rgba(0,212,255,.2), transparent);
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
   }
   .stay-block h3 {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Geist', sans-serif;
     font-size: 22px;
-    font-weight: 400;
+    font-weight: 600;
     margin-bottom: 6px;
+    letter-spacing: -.015em;
   }
-  .stay-block h3 a { color: var(--sea); text-decoration: none; }
-  .stay-block h3 a:hover { text-decoration: underline; }
+  .stay-block h3 a {
+    color: var(--text);
+    text-decoration: none;
+    background-image: linear-gradient(var(--cyan), var(--cyan));
+    background-repeat: no-repeat;
+    background-size: 0% 1px;
+    background-position: 0 100%;
+    transition: background-size .3s ease;
+    padding-bottom: 2px;
+  }
+  .stay-block h3 a:hover { background-size: 100% 1px; }
   .stay-tagline {
     font-size: 13px;
-    font-style: italic;
-    color: var(--mid);
-    margin-bottom: 14px;
+    color: var(--text-dim);
+    margin-bottom: 18px;
   }
   .stay-amenities {
     display: flex;
@@ -295,45 +432,54 @@
     gap: 8px;
   }
   .amenity {
-    font-size: 12px;
-    background: #fff;
-    border: 1px solid var(--stone);
+    font-family: 'Geist Mono', monospace;
+    font-size: 11px;
+    background: rgba(255,255,255,.04);
+    border: 1px solid var(--border);
     border-radius: 99px;
-    padding: 3px 12px;
-    color: var(--mid);
+    padding: 5px 12px;
+    color: var(--text-dim);
+    letter-spacing: .02em;
   }
 
   /* ── NOTES ── */
   .note {
-    background: #fff;
-    border: 1px solid var(--stone);
-    border-left: 3px solid var(--terra);
-    border-radius: 0 6px 6px 0;
-    padding: 12px 16px;
+    background: rgba(255,0,170,.04);
+    border: 1px solid rgba(255,0,170,.15);
+    border-left: 2px solid var(--magenta);
+    border-radius: 0 12px 12px 0;
+    padding: 14px 18px;
     font-size: 13px;
-    color: var(--mid);
-    margin-top: 10px;
+    color: var(--text-dim);
+    margin-top: 12px;
+    line-height: 1.6;
   }
-  .note strong { color: var(--ink); font-weight: 500; }
+  .note strong { color: var(--text); font-weight: 500; }
 
   /* ── FOOTER ── */
   footer {
-    background: var(--sea);
-    color: rgba(255,255,255,.5);
+    border-top: 1px solid var(--border);
     text-align: center;
-    padding: 32px 40px;
+    padding: 40px 40px;
+    font-family: 'Geist Mono', monospace;
     font-size: 12px;
-    letter-spacing: .05em;
+    letter-spacing: .08em;
+    color: var(--text-faint);
+    background:
+      radial-gradient(ellipse 60% 100% at 50% 0%, rgba(0,212,255,.04), transparent 70%);
   }
-  footer strong { color: rgba(255,255,255,.8); font-weight: 400; }
+  footer strong { color: var(--text-dim); font-weight: 500; }
 
   /* ── RESPONSIVE ── */
-  @media (max-width: 600px) {
-    .hero { padding: 56px 24px 44px; }
-    .page { padding: 40px 24px; }
-    .tl-item { grid-template-columns: 72px 1px 1fr; gap: 0 16px; }
-    .tl-date-day { font-size: 24px; }
-    .stay-block { padding: 20px; }
+  @media (max-width: 720px) {
+    .hero { padding: 80px 24px 60px; }
+    .hero-meta { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    .hero-meta-item { padding: 14px 16px; }
+    .page { padding: 56px 24px 40px; }
+    .tl-item { grid-template-columns: 72px 1px 1fr; gap: 0 18px; }
+    .tl-date-day { font-size: 28px; }
+    .tl-heading { font-size: 24px; }
+    .stay-block { padding: 22px; }
   }
 </style>
 </head>
@@ -342,23 +488,24 @@
 <header class="hero">
   <div class="hero-inner">
     <p class="hero-eyebrow">Dittrich Family · Summer 2026</p>
-    <h1>Croatia<br><em>& Dalmatia</em></h1>
+    <h1>Croatia<br><span class="gradient">&amp; Dalmatia</span></h1>
+    <p class="hero-sub">Thirteen nights along the Adriatic — base camp in the mountains, day trips down the coast, an island detour, and one last night in Split.</p>
     <div class="hero-meta">
       <div class="hero-meta-item">
-        <strong>June 25 – July 8</strong>
-        13 nights
+        <div class="label">Dates</div>
+        <div class="value">Jun 25 – Jul 8<br><span style="color:var(--text-faint);font-size:13px">13 nights</span></div>
       </div>
       <div class="hero-meta-item">
-        <strong>Travelers</strong>
-        Andrew · Colleen · Addison
+        <div class="label">Travelers</div>
+        <div class="value">Andrew · Colleen · Addison</div>
       </div>
       <div class="hero-meta-item">
-        <strong>Confirmation</strong>
-        DS2R69
+        <div class="label">Confirmation</div>
+        <div class="value" style="font-family:'Geist Mono',monospace">DS2R69</div>
       </div>
       <div class="hero-meta-item">
-        <strong>Stops</strong>
-        Zagvozd · Dubrovnik · Vela Luka · Split
+        <div class="label">Stops</div>
+        <div class="value">Zagvozd · Dubrovnik · Vela Luka · Split</div>
       </div>
     </div>
   </div>
@@ -382,12 +529,12 @@
         <div class="tl-line"></div>
       </div>
       <div class="tl-content">
-        <h2 class="tl-heading">Depart <em>Kansas City</em></h2>
+        <h2 class="tl-heading">Depart <span class="accent">Kansas City</span></h2>
         <div class="cards">
           <div class="card accent-flight">
             <div class="card-icon">✈</div>
             <div>
-              <div class="card-title">UA 688 <span class="tag tag-blue">Leg 1</span></div>
+              <div class="card-title">UA 688 <span class="tag tag-cyan">Leg 1</span></div>
               <div class="flight-row">
                 <span class="airport">MCI</span>
                 <span class="flight-arrow">→</span>
@@ -400,7 +547,7 @@
           <div class="card accent-flight">
             <div class="card-icon">✈</div>
             <div>
-              <div class="card-title">UA 989 <span class="tag tag-blue">Transatlantic</span></div>
+              <div class="card-title">UA 989 <span class="tag tag-cyan">Transatlantic</span></div>
               <div class="flight-row">
                 <span class="airport">IAD</span>
                 <span class="flight-arrow">→</span>
@@ -426,12 +573,12 @@
         <div class="tl-line"></div>
       </div>
       <div class="tl-content">
-        <h2 class="tl-heading">Arrive <em>Croatia</em></h2>
+        <h2 class="tl-heading">Arrive <span class="accent">Croatia</span></h2>
         <div class="cards">
           <div class="card accent-flight">
             <div class="card-icon">✈</div>
             <div>
-              <div class="card-title">UA 7270 — Croatia Airlines <span class="tag tag-blue">Final leg</span></div>
+              <div class="card-title">UA 7270 — Croatia Airlines <span class="tag tag-cyan">Final leg</span></div>
               <div class="flight-row">
                 <span class="airport">FRA</span>
                 <span class="flight-arrow">→</span>
@@ -455,7 +602,7 @@
           <div class="stay-amenities">
             <span class="amenity">🏊 Pool</span>
             <span class="amenity">🍖 BBQ grill</span>
-            <span class="amenity">☀️ Sun loungers</span>
+            <span class="amenity">☀ Sun loungers</span>
             <span class="amenity">📺 Outdoor lounge</span>
             <span class="amenity">🍽 Dining terrace</span>
           </div>
@@ -475,7 +622,7 @@
         <div class="tl-line"></div>
       </div>
       <div class="tl-content">
-        <h2 class="tl-heading"><em>Villa Sulic</em> — base camp</h2>
+        <h2 class="tl-heading"><span class="accent">Villa Sulic</span> — base camp</h2>
         <div class="cards">
           <div class="card accent-villa">
             <div class="card-icon">🏔</div>
@@ -500,7 +647,7 @@
         <div class="tl-line"></div>
       </div>
       <div class="tl-content">
-        <h2 class="tl-heading">Still at <em>Villa Sulic</em></h2>
+        <h2 class="tl-heading">Still at <span class="accent">Villa Sulic</span></h2>
         <div class="cards">
           <div class="card accent-villa">
             <div class="card-icon">🌊</div>
@@ -525,12 +672,12 @@
         <div class="tl-line"></div>
       </div>
       <div class="tl-content">
-        <h2 class="tl-heading">Day trip — <em>Dubrovnik</em></h2>
+        <h2 class="tl-heading">Day trip — <span class="accent-magenta">Dubrovnik</span></h2>
         <div class="cards">
           <div class="card accent-activity">
             <div class="card-icon">🏰</div>
             <div>
-              <div class="card-title">King's Landing <span class="tag tag-terra">~2.5h drive south</span></div>
+              <div class="card-title">King's Landing <span class="tag tag-magenta">~2.5h drive south</span></div>
               <div class="card-detail">Old City walls · Game of Thrones filming locations · Cable car to Mount Srđ · Lokrum island ferry nearby · Return to Villa Sulic for the night</div>
             </div>
           </div>
@@ -551,7 +698,7 @@
         <div class="tl-line"></div>
       </div>
       <div class="tl-content">
-        <h2 class="tl-heading">Last day at <em>Villa Sulic</em></h2>
+        <h2 class="tl-heading">Last day at <span class="accent">Villa Sulic</span></h2>
         <div class="cards">
           <div class="card accent-villa">
             <div class="card-icon">🏊</div>
@@ -576,7 +723,7 @@
         <div class="tl-line"></div>
       </div>
       <div class="tl-content">
-        <h2 class="tl-heading">Ferry to <em>Vela Luka</em></h2>
+        <h2 class="tl-heading">Ferry to <span class="accent">Vela Luka</span></h2>
         <div class="cards">
           <div class="card accent-ferry">
             <div class="card-icon">⛴</div>
@@ -602,7 +749,7 @@
         <div class="tl-line"></div>
       </div>
       <div class="tl-content">
-        <h2 class="tl-heading"><em>Korčula</em> island</h2>
+        <h2 class="tl-heading"><span class="accent">Korčula</span> island</h2>
         <div class="cards">
           <div class="card accent-ferry">
             <div class="card-icon">🌿</div>
@@ -627,7 +774,7 @@
         <div class="tl-line"></div>
       </div>
       <div class="tl-content">
-        <h2 class="tl-heading">Head to <em>Split</em></h2>
+        <h2 class="tl-heading">Head to <span class="accent-magenta">Split</span></h2>
         <div class="cards">
           <div class="card accent-ferry">
             <div class="card-icon">⛴</div>
@@ -669,12 +816,12 @@
         <div class="tl-line"></div>
       </div>
       <div class="tl-content">
-        <h2 class="tl-heading">Fly home to <em>Kansas City</em></h2>
+        <h2 class="tl-heading">Fly home to <span class="accent-magenta">Kansas City</span></h2>
         <div class="cards">
           <div class="card accent-flight">
             <div class="card-icon">✈</div>
             <div>
-              <div class="card-title">UA 306 <span class="tag tag-terra">Homebound</span></div>
+              <div class="card-title">UA 306 <span class="tag tag-magenta">Homebound</span></div>
               <div class="flight-row">
                 <span class="airport">SPU</span>
                 <span class="flight-arrow">→</span>
@@ -687,7 +834,7 @@
           <div class="card accent-flight">
             <div class="card-icon">✈</div>
             <div>
-              <div class="card-title">UA 3436 — Republic Airways <span class="tag tag-terra">Final leg</span></div>
+              <div class="card-title">UA 3436 — Republic Airways <span class="tag tag-magenta">Final leg</span></div>
               <div class="flight-row">
                 <span class="airport">EWR</span>
                 <span class="flight-arrow">→</span>
