@@ -1,0 +1,8 @@
+node_modules/
+.staticrypt.json
+*.log
+.DS_Store
+
+# Unencrypted source — must stay local since the repo is public.
+# To recover from the encrypted output: npx staticrypt index.html --decrypt -d src
+src/

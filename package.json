@@ -1,0 +1,12 @@
+{
+  "name": "croatia-2026",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Password-protected travel itinerary, encrypted with StaticCrypt and served via GitHub Pages.",
+  "scripts": {
+    "build": "staticrypt src/index.html --short -d . --template-title 'Croatia 2026' --template-instructions 'Enter the password to view the itinerary.' --template-color-primary '#00d4ff' --template-color-secondary '#0a0a0f' --template-button 'Unlock'"
+  },
+  "devDependencies": {
+    "staticrypt": "^3.5.0"
+  }
+}
