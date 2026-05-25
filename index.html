@@ -442,6 +442,24 @@
     letter-spacing: .02em;
   }
 
+  /* ── EMBEDDED MAP ── */
+  .stay-map {
+    margin-top: 18px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    position: relative;
+    height: 240px;
+    background: var(--bg-elev-2);
+  }
+  .stay-map iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+    filter: invert(.92) hue-rotate(180deg) saturate(.75) brightness(.95) contrast(1.05);
+  }
+
   /* ── NOTES ── */
   .note {
     background: rgba(255,0,170,.04);
@@ -602,6 +620,9 @@
             <span class="amenity">📺 Outdoor lounge</span>
             <span class="amenity">🍽 Dining terrace</span>
           </div>
+          <div class="stay-map">
+            <iframe src="https://www.google.com/maps?q=Villa+Sulic+Zagvozd+Croatia&z=13&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Villa Sulic, Zagvozd"></iframe>
+          </div>
         </div>
       </div>
     </div>
@@ -737,8 +758,11 @@
           </div>
         </div>
         <div class="stay-block">
-          <h3><a href="https://www.booking.com/Share-B3L5D9" target="_blank">Apartment Prospe</a> — Vela Luka</h3>
+          <h3><a href="https://www.booking.com/Share-v39aI3C" target="_blank">Apartment Prospe</a> — Vela Luka</h3>
           <p class="stay-tagline">Home base on Korčula · Jul 4 – 7</p>
+          <div class="stay-map">
+            <iframe src="https://www.google.com/maps?q=Apartment+Prospe+Vela+Luka+Croatia&z=14&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Apartment Prospe, Vela Luka"></iframe>
+          </div>
         </div>
         <div class="note"><strong>Note:</strong> Jadrolinija ferry schedules vary by season. Confirm July 4 sailing times in advance and arrive at Makarska port early in summer.</div>
       </div>
@@ -797,21 +821,19 @@
               <div class="card-detail">Vela Luka → Makarska, or catamaran direct to Split — check Jadrolinija for options</div>
             </div>
           </div>
-          <div class="card accent-villa">
-            <div class="card-icon">🏠</div>
-            <div>
-              <div class="card-title">Check in — Split (1 night)</div>
-              <div class="card-detail">
-                <strong><a href="https://www.booking.com/Share-BQd5QU" target="_blank">Bacvice 21</a></strong> — beachfront apartment, 5 min walk to Bačvice Beach, 15 min to Diocletian's Palace
-              </div>
-            </div>
-          </div>
           <div class="card accent-activity">
             <div class="card-icon">🍷</div>
             <div>
               <div class="card-title">Dinner & evening in Split</div>
               <div class="card-detail">Diocletian's Palace · Riva waterfront promenade · farewell dinner in the old town</div>
             </div>
+          </div>
+        </div>
+        <div class="stay-block">
+          <h3><a href="https://www.booking.com/Share-RlxqzCv" target="_blank">Bacvice 21</a> — Split</h3>
+          <p class="stay-tagline">Beachfront apartment · 5 min to Bačvice Beach, 15 min to Diocletian's Palace</p>
+          <div class="stay-map">
+            <iframe src="https://www.google.com/maps?q=Bacvice+21+Split+Croatia&z=15&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Bacvice 21, Split"></iframe>
           </div>
         </div>
       </div>
