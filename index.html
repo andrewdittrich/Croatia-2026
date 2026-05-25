@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Croatia 2026 — Dittrich Family</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sea: #1a4a6b;
+    --sea-mid: #2d6a9f;
+    --sea-light: #c8dfee;
+    --sand: #f5ede0;
+    --stone: #d4c5b0;
+    --terra: #b85c38;
+    --terra-light: #f0d4c8;
+    --ink: #1c1a18;
+    --mist: #f8f4ef;
+    --mid: #6b6259;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--mist);
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--sea);
+    color: #fff;
+    padding: 80px 40px 60px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 120% 80% at 110% 120%, rgba(45,106,159,.5) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 60% at -10% -10%, rgba(184,92,56,.15) 0%, transparent 50%);
+  }
+  .hero-inner {
+    max-width: 860px;
+    margin: 0 auto;
+    position: relative;
+  }
+  .hero-eyebrow {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: var(--sea-light);
+    margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(52px, 8vw, 96px);
+    font-weight: 300;
+    line-height: .95;
+    letter-spacing: -.02em;
+    margin-bottom: 24px;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--sea-light);
+  }
+  .hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    margin-top: 32px;
+    padding-top: 28px;
+    border-top: 1px solid rgba(255,255,255,.15);
+  }
+  .hero-meta-item {
+    font-size: 13px;
+    color: rgba(255,255,255,.7);
+  }
+  .hero-meta-item strong {
+    display: block;
+    font-size: 15px;
+    font-weight: 400;
+    color: #fff;
+    margin-bottom: 2px;
+  }
+
+  /* ── LAYOUT ── */
+  .page {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 60px 40px;
+  }
+
+  /* ── SECTION HEADERS ── */
+  .section-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: .25em;
+    text-transform: uppercase;
+    color: var(--terra);
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--stone);
+  }
+
+  /* ── TIMELINE ── */
+  .timeline { display: flex; flex-direction: column; gap: 0; }
+
+  .tl-item {
+    display: grid;
+    grid-template-columns: 120px 1px 1fr;
+    gap: 0 24px;
+    position: relative;
+  }
+  .tl-item:not(:last-child) .tl-line { background: var(--stone); }
+
+  .tl-date {
+    padding: 0 0 48px;
+    text-align: right;
+  }
+  .tl-date-day {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    font-weight: 300;
+    color: var(--sea);
+    line-height: 1;
+  }
+  .tl-date-month {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--mid);
+    margin-top: 2px;
+  }
+  .tl-date-range {
+    font-size: 11px;
+    color: var(--mid);
+    margin-top: 4px;
+  }
+
+  .tl-spine {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .tl-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 6px;
+    border: 2px solid var(--mist);
+  }
+  .tl-line { flex: 1; width: 1px; }
+
+  .tl-dot.travel  { background: var(--sea-mid); }
+  .tl-dot.arrive  { background: #2a9d6f; }
+  .tl-dot.villa   { background: #7a6fb0; }
+  .tl-dot.explore { background: var(--terra); }
+  .tl-dot.island  { background: #2a9d6f; }
+  .tl-dot.depart  { background: var(--terra); }
+
+  .tl-content { padding: 0 0 48px; }
+  .tl-heading {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    font-weight: 400;
+    line-height: 1.1;
+    margin-bottom: 12px;
+    color: var(--ink);
+  }
+  .tl-heading em { font-style: italic; color: var(--sea); }
+
+  /* ── CARDS ── */
+  .cards { display: flex; flex-direction: column; gap: 8px; }
+
+  .card {
+    background: #fff;
+    border: 1px solid var(--stone);
+    border-radius: 6px;
+    padding: 14px 16px;
+    display: grid;
+    grid-template-columns: 20px 1fr;
+    gap: 12px;
+    align-items: start;
+  }
+  .card.accent-villa { border-left: 3px solid #7a6fb0; }
+  .card.accent-flight { border-left: 3px solid var(--sea-mid); }
+  .card.accent-activity { border-left: 3px solid var(--terra); }
+  .card.accent-ferry { border-left: 3px solid #2a9d6f; }
+
+  .card-icon {
+    font-size: 16px;
+    margin-top: 1px;
+    text-align: center;
+  }
+  .card-title {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink);
+    line-height: 1.3;
+    margin-bottom: 3px;
+  }
+  .card-detail {
+    font-size: 13px;
+    color: var(--mid);
+    line-height: 1.55;
+  }
+  .card-detail a { color: var(--sea-mid); text-decoration: none; }
+  .card-detail a:hover { text-decoration: underline; }
+
+  .flight-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 6px;
+    flex-wrap: wrap;
+  }
+  .airport {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--sea);
+    letter-spacing: .02em;
+  }
+  .flight-arrow { color: var(--stone); font-size: 14px; }
+  .flight-time { font-size: 13px; color: var(--mid); }
+  .flight-meta { font-size: 12px; color: var(--mid); margin-top: 4px; }
+
+  .tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 99px;
+    margin-left: 6px;
+    vertical-align: middle;
+  }
+  .tag-blue { background: var(--sea-light); color: var(--sea); }
+  .tag-terra { background: var(--terra-light); color: var(--terra); }
+  .tag-green { background: #d4ede6; color: #1a6b4a; }
+  .tag-purple { background: #e8e6f5; color: #4a3f8f; }
+
+  /* ── DIVIDER ── */
+  .divider {
+    border: none;
+    border-top: 1px solid var(--stone);
+    margin: 48px 0;
+  }
+
+  /* ── ACCOMMODATION BLOCK ── */
+  .stay-block {
+    background: var(--sand);
+    border-radius: 8px;
+    padding: 28px 32px;
+    margin-top: 12px;
+  }
+  .stay-block h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 400;
+    margin-bottom: 6px;
+  }
+  .stay-block h3 a { color: var(--sea); text-decoration: none; }
+  .stay-block h3 a:hover { text-decoration: underline; }
+  .stay-tagline {
+    font-size: 13px;
+    font-style: italic;
+    color: var(--mid);
+    margin-bottom: 14px;
+  }
+  .stay-amenities {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .amenity {
+    font-size: 12px;
+    background: #fff;
+    border: 1px solid var(--stone);
+    border-radius: 99px;
+    padding: 3px 12px;
+    color: var(--mid);
+  }
+
+  /* ── NOTES ── */
+  .note {
+    background: #fff;
+    border: 1px solid var(--stone);
+    border-left: 3px solid var(--terra);
+    border-radius: 0 6px 6px 0;
+    padding: 12px 16px;
+    font-size: 13px;
+    color: var(--mid);
+    margin-top: 10px;
+  }
+  .note strong { color: var(--ink); font-weight: 500; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--sea);
+    color: rgba(255,255,255,.5);
+    text-align: center;
+    padding: 32px 40px;
+    font-size: 12px;
+    letter-spacing: .05em;
+  }
+  footer strong { color: rgba(255,255,255,.8); font-weight: 400; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 600px) {
+    .hero { padding: 56px 24px 44px; }
+    .page { padding: 40px 24px; }
+    .tl-item { grid-template-columns: 72px 1px 1fr; gap: 0 16px; }
+    .tl-date-day { font-size: 24px; }
+    .stay-block { padding: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <p class="hero-eyebrow">Dittrich Family · Summer 2026</p>
+    <h1>Croatia<br><em>& Dalmatia</em></h1>
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <strong>June 25 – July 8</strong>
+        13 nights
+      </div>
+      <div class="hero-meta-item">
+        <strong>Travelers</strong>
+        Andrew · Colleen · Addison
+      </div>
+      <div class="hero-meta-item">
+        <strong>Confirmation</strong>
+        DS2R69
+      </div>
+      <div class="hero-meta-item">
+        <strong>Stops</strong>
+        Zagvozd · Dubrovnik · Vela Luka · Split
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="page">
+
+  <p class="section-label">Full itinerary</p>
+
+  <div class="timeline">
+
+    <!-- June 25 -->
+    <div class="tl-item">
+      <div class="tl-date">
+        <div class="tl-date-day">25</div>
+        <div class="tl-date-month">June</div>
+        <div class="tl-date-range">Thursday</div>
+      </div>
+      <div class="tl-spine">
+        <div class="tl-dot travel"></div>
+        <div class="tl-line"></div>
+      </div>
+      <div class="tl-content">
+        <h2 class="tl-heading">Depart <em>Kansas City</em></h2>
+        <div class="cards">
+          <div class="card accent-flight">
+            <div class="card-icon">✈</div>
+            <div>
+              <div class="card-title">UA 688 <span class="tag tag-blue">Leg 1</span></div>
+              <div class="flight-row">
+                <span class="airport">MCI</span>
+                <span class="flight-arrow">→</span>
+                <span class="airport">IAD</span>
+                <span class="flight-time">12:30 pm – 4:03 pm</span>
+              </div>
+              <div class="flight-meta">2h 33m · United Economy · Seats 29B, 29A, 29C</div>
+            </div>
+          </div>
+          <div class="card accent-flight">
+            <div class="card-icon">✈</div>
+            <div>
+              <div class="card-title">UA 989 <span class="tag tag-blue">Transatlantic</span></div>
+              <div class="flight-row">
+                <span class="airport">IAD</span>
+                <span class="flight-arrow">→</span>
+                <span class="airport">FRA</span>
+                <span class="flight-time">5:20 pm – 7:20 am +1</span>
+              </div>
+              <div class="flight-meta">8h overnight · United Economy · Seats 51B, 51A, 51C · Arrives Frankfurt June 26</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- June 26 -->
+    <div class="tl-item">
+      <div class="tl-date">
+        <div class="tl-date-day">26</div>
+        <div class="tl-date-month">June</div>
+        <div class="tl-date-range">Friday</div>
+      </div>
+      <div class="tl-spine">
+        <div class="tl-dot arrive"></div>
+        <div class="tl-line"></div>
+      </div>
+      <div class="tl-content">
+        <h2 class="tl-heading">Arrive <em>Croatia</em></h2>
+        <div class="cards">
+          <div class="card accent-flight">
+            <div class="card-icon">✈</div>
+            <div>
+              <div class="card-title">UA 7270 — Croatia Airlines <span class="tag tag-blue">Final leg</span></div>
+              <div class="flight-row">
+                <span class="airport">FRA</span>
+                <span class="flight-arrow">→</span>
+                <span class="airport">SPU</span>
+                <span class="flight-time">10:05 am – 11:50 am</span>
+              </div>
+              <div class="flight-meta">1h 45m · Economy · Seats 14E, 14F, 14D · 2h 45m connection in Frankfurt</div>
+            </div>
+          </div>
+          <div class="card accent-villa">
+            <div class="card-icon">🚗</div>
+            <div>
+              <div class="card-title">Drive to Zagvozd</div>
+              <div class="card-detail">~45 min from Split Airport (SPU) into the Dalmatian hinterland</div>
+            </div>
+          </div>
+        </div>
+        <div class="stay-block">
+          <h3><a href="https://villasulic.com" target="_blank">Villa Sulic</a> — Zagvozd</h3>
+          <p class="stay-tagline">Nestled in the mountains, close to the sea</p>
+          <div class="stay-amenities">
+            <span class="amenity">🏊 Pool</span>
+            <span class="amenity">🍖 BBQ grill</span>
+            <span class="amenity">☀️ Sun loungers</span>
+            <span class="amenity">📺 Outdoor lounge</span>
+            <span class="amenity">🍽 Dining terrace</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- June 27–30 -->
+    <div class="tl-item">
+      <div class="tl-date">
+        <div class="tl-date-day">27–30</div>
+        <div class="tl-date-month">June</div>
+        <div class="tl-date-range">Sat – Tue</div>
+      </div>
+      <div class="tl-spine">
+        <div class="tl-dot villa"></div>
+        <div class="tl-line"></div>
+      </div>
+      <div class="tl-content">
+        <h2 class="tl-heading"><em>Villa Sulic</em> — base camp</h2>
+        <div class="cards">
+          <div class="card accent-villa">
+            <div class="card-icon">🏔</div>
+            <div>
+              <div class="card-title">Relax & explore the hinterland</div>
+              <div class="card-detail">Makarska Riviera ~25 min · Biokovo Nature Park for hiking with panoramic Adriatic views · Local konobas for ćevapi and fresh fish</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- July 1 -->
+    <div class="tl-item">
+      <div class="tl-date">
+        <div class="tl-date-day">1</div>
+        <div class="tl-date-month">July</div>
+        <div class="tl-date-range">Wednesday</div>
+      </div>
+      <div class="tl-spine">
+        <div class="tl-dot villa"></div>
+        <div class="tl-line"></div>
+      </div>
+      <div class="tl-content">
+        <h2 class="tl-heading">Still at <em>Villa Sulic</em></h2>
+        <div class="cards">
+          <div class="card accent-villa">
+            <div class="card-icon">🌊</div>
+            <div>
+              <div class="card-title">Free day</div>
+              <div class="card-detail">Beach day at Makarska or Brela · Prep for Dubrovnik tomorrow</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- July 2 -->
+    <div class="tl-item">
+      <div class="tl-date">
+        <div class="tl-date-day">2</div>
+        <div class="tl-date-month">July</div>
+        <div class="tl-date-range">Thursday</div>
+      </div>
+      <div class="tl-spine">
+        <div class="tl-dot explore"></div>
+        <div class="tl-line"></div>
+      </div>
+      <div class="tl-content">
+        <h2 class="tl-heading">Day trip — <em>Dubrovnik</em></h2>
+        <div class="cards">
+          <div class="card accent-activity">
+            <div class="card-icon">🏰</div>
+            <div>
+              <div class="card-title">King's Landing <span class="tag tag-terra">~2.5h drive south</span></div>
+              <div class="card-detail">Old City walls · Game of Thrones filming locations · Cable car to Mount Srđ · Lokrum island ferry nearby · Return to Villa Sulic for the night</div>
+            </div>
+          </div>
+        </div>
+        <div class="note"><strong>Tip:</strong> Book the city wall tickets online in advance — queues get long in July. Early morning arrival beats the cruise ship crowds.</div>
+      </div>
+    </div>
+
+    <!-- July 3 -->
+    <div class="tl-item">
+      <div class="tl-date">
+        <div class="tl-date-day">3</div>
+        <div class="tl-date-month">July</div>
+        <div class="tl-date-range">Friday</div>
+      </div>
+      <div class="tl-spine">
+        <div class="tl-dot villa"></div>
+        <div class="tl-line"></div>
+      </div>
+      <div class="tl-content">
+        <h2 class="tl-heading">Last day at <em>Villa Sulic</em></h2>
+        <div class="cards">
+          <div class="card accent-villa">
+            <div class="card-icon">🏊</div>
+            <div>
+              <div class="card-title">Final pool day — pack for the islands</div>
+              <div class="card-detail">Check ferry times for tomorrow · Makarska port ~25 min away</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- July 4 -->
+    <div class="tl-item">
+      <div class="tl-date">
+        <div class="tl-date-day">4</div>
+        <div class="tl-date-month">July</div>
+        <div class="tl-date-range">Saturday</div>
+      </div>
+      <div class="tl-spine">
+        <div class="tl-dot island"></div>
+        <div class="tl-line"></div>
+      </div>
+      <div class="tl-content">
+        <h2 class="tl-heading">Ferry to <em>Vela Luka</em></h2>
+        <div class="cards">
+          <div class="card accent-ferry">
+            <div class="card-icon">⛴</div>
+            <div>
+              <div class="card-title">Makarska → Vela Luka <span class="tag tag-green">Korčula island</span></div>
+              <div class="card-detail">~2h crossing · Operated by Jadrolinija — check current schedule at <a href="https://www.jadrolinija.hr" target="_blank">jadrolinija.hr</a> · Vela Luka is a quiet harbor town on the western tip of Korčula</div>
+            </div>
+          </div>
+        </div>
+        <div class="note"><strong>Note:</strong> Jadrolinija ferry schedules vary by season. Confirm July 4 sailing times in advance and arrive at Makarska port early in summer.</div>
+      </div>
+    </div>
+
+    <!-- July 5–6 -->
+    <div class="tl-item">
+      <div class="tl-date">
+        <div class="tl-date-day">5–6</div>
+        <div class="tl-date-month">July</div>
+        <div class="tl-date-range">Sun – Mon</div>
+      </div>
+      <div class="tl-spine">
+        <div class="tl-dot island"></div>
+        <div class="tl-line"></div>
+      </div>
+      <div class="tl-content">
+        <h2 class="tl-heading"><em>Korčula</em> island</h2>
+        <div class="cards">
+          <div class="card accent-ferry">
+            <div class="card-icon">🌿</div>
+            <div>
+              <div class="card-title">Vela Luka & Korčula Old Town</div>
+              <div class="card-detail">Swimming · Fresh seafood · Korčula Old Town ~1h east (birthplace of Marco Polo) · Vela Spila prehistoric cave · Prošek wine tasting</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- July 7 -->
+    <div class="tl-item">
+      <div class="tl-date">
+        <div class="tl-date-day">7</div>
+        <div class="tl-date-month">July</div>
+        <div class="tl-date-range">Tuesday</div>
+      </div>
+      <div class="tl-spine">
+        <div class="tl-dot explore"></div>
+        <div class="tl-line"></div>
+      </div>
+      <div class="tl-content">
+        <h2 class="tl-heading">Head to <em>Split</em></h2>
+        <div class="cards">
+          <div class="card accent-ferry">
+            <div class="card-icon">⛴</div>
+            <div>
+              <div class="card-title">Ferry back to mainland</div>
+              <div class="card-detail">Vela Luka → Makarska, or catamaran direct to Split — check Jadrolinija for options</div>
+            </div>
+          </div>
+          <div class="card accent-villa">
+            <div class="card-icon">🏠</div>
+            <div>
+              <div class="card-title">Check in — Split (1 night)</div>
+              <div class="card-detail">
+                <strong>Bacvice 21</strong> — beachfront apartment, 5 min walk to Bačvice Beach, 15 min to Diocletian's Palace<br>
+                <strong>Apartment Prospe</strong> — also in Split, same night
+              </div>
+            </div>
+          </div>
+          <div class="card accent-activity">
+            <div class="card-icon">🍷</div>
+            <div>
+              <div class="card-title">Dinner & evening in Split</div>
+              <div class="card-detail">Diocletian's Palace · Riva waterfront promenade · farewell dinner in the old town</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- July 8 -->
+    <div class="tl-item">
+      <div class="tl-date">
+        <div class="tl-date-day">8</div>
+        <div class="tl-date-month">July</div>
+        <div class="tl-date-range">Wednesday</div>
+      </div>
+      <div class="tl-spine">
+        <div class="tl-dot depart"></div>
+        <div class="tl-line"></div>
+      </div>
+      <div class="tl-content">
+        <h2 class="tl-heading">Fly home to <em>Kansas City</em></h2>
+        <div class="cards">
+          <div class="card accent-flight">
+            <div class="card-icon">✈</div>
+            <div>
+              <div class="card-title">UA 306 <span class="tag tag-terra">Homebound</span></div>
+              <div class="flight-row">
+                <span class="airport">SPU</span>
+                <span class="flight-arrow">→</span>
+                <span class="airport">EWR</span>
+                <span class="flight-time">9:15 am – 1:20 pm</span>
+              </div>
+              <div class="flight-meta">10h 5m · United Economy · Seats 39E, 39F, 39D</div>
+            </div>
+          </div>
+          <div class="card accent-flight">
+            <div class="card-icon">✈</div>
+            <div>
+              <div class="card-title">UA 3436 — Republic Airways <span class="tag tag-terra">Final leg</span></div>
+              <div class="flight-row">
+                <span class="airport">EWR</span>
+                <span class="flight-arrow">→</span>
+                <span class="airport">MCI</span>
+                <span class="flight-time">2:47 pm – 5:02 pm</span>
+              </div>
+              <div class="flight-meta">3h 15m · United Economy · Seats 20C, 20D, 20B · 1h 27m connection at Newark</div>
+            </div>
+          </div>
+        </div>
+        <div class="note"><strong>Home by early evening.</strong> Total journey: 13 nights, 3 regions, one very good summer.</div>
+      </div>
+    </div>
+
+  </div><!-- end timeline -->
+
+</main>
+
+<footer>
+  <strong>Dittrich Family · Croatia 2026</strong> &nbsp;·&nbsp; Last updated June 2026
+</footer>
+
+</body>
+</html>
